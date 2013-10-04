@@ -1,0 +1,44 @@
+<%= form_for(@rss_feed) do |f| %>
+    <% if @rss_feed.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@rss_feed.errors.count, "error") %> prohibited this rss_feed from being saved:</h2>
+
+          <ul>
+            <% @rss_feed.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %>*<br/>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :link %>*<br/>
+      <%= f.text_field :link %>
+    </div>
+    <div class="field">
+      <%= f.label :description %>*<br/>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="field items-form">
+      <%= f.label :items %>*<br/>
+      <%= f.fields_for :items do |f_item| %>
+          <%= render :partial => 'item_form', locals: {f: f, f_item: f_item} %>
+      <% end %>
+
+      <div class='add-item-link'>
+        <%= link_to 'Add Item', 'javascript:void(0);' %>
+      </div>
+
+    </div>
+
+
+
+    <div class="actions">
+      <%= f.submit "#{@rss_feed.new_record? ? 'Create' : 'Update'} RSS Feed" %>
+    </div>
+<% end %>

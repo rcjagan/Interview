@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<p>
+
+<h2><%= link_to @rss_feed.title, @rss_feed.link, target: '_blank' %></h2>
+</p>
+
+<p>
+  <%= @rss_feed.description %>
+</p>
+
+<p>
+  <%= render :partial => 'item', collection: @rss_feed.items %>
+</p>
+
+
+<%= link_to 'Edit', edit_rss_feed_path(@rss_feed) %> |
+<%= link_to 'Back', rss_feeds_path %>

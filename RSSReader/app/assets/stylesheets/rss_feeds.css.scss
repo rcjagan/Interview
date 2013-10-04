@@ -1,0 +1,23 @@
+// Place all the styles related to the RSSFeeds controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.item {
+  border-bottom: 2px solid grey;
+  padding-left: 25px;
+}
+
+.items-form {
+  width: 25%;
+
+}
+
+.item-form {
+  border-bottom: 2px solid grey;
+  border-top: 2px solid grey;
+  padding: 20px;
+}
+
+.add-item-link {
+  float: right;
+}
